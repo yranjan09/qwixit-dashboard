@@ -15,10 +15,10 @@ import { mockData } from "@/lib/mock-data";
 
 const Index = () => {
   const [searchText, setSearchText] = useState("");
-  const [serviceFilter, setServiceFilter] = useState("");
-  const [priceFilter, setPriceFilter] = useState("");
-  const [locationFilter, setLocationFilter] = useState("");
-  const [excludeFilter, setExcludeFilter] = useState("");
+  const [serviceFilter, setServiceFilter] = useState("all");
+  const [priceFilter, setPriceFilter] = useState("all");
+  const [locationFilter, setLocationFilter] = useState("all");
+  const [excludeFilter, setExcludeFilter] = useState("all");
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,10 +27,10 @@ const Index = () => {
   
   const handleReset = () => {
     setSearchText("");
-    setServiceFilter("");
-    setPriceFilter("");
-    setLocationFilter("");
-    setExcludeFilter("");
+    setServiceFilter("all");
+    setPriceFilter("all");
+    setLocationFilter("all");
+    setExcludeFilter("all");
   };
 
   return (
@@ -52,7 +52,7 @@ const Index = () => {
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Category</SelectItem>
+              <SelectItem value="all">Category</SelectItem>
               {mockData.serviceCategories.map(cat => (
                 <SelectItem key={cat} value={cat}>{cat}</SelectItem>
               ))}
@@ -64,7 +64,7 @@ const Index = () => {
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Price</SelectItem>
+              <SelectItem value="all">Price</SelectItem>
               <SelectItem value="500">0-500</SelectItem>
               <SelectItem value="1000">500-1000</SelectItem>
               <SelectItem value="1500">1000-1500</SelectItem>
@@ -76,7 +76,7 @@ const Index = () => {
               <SelectValue placeholder="Location" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Location</SelectItem>
+              <SelectItem value="all">Location</SelectItem>
               <SelectItem value="Delhi">Delhi</SelectItem>
               <SelectItem value="Indore">Indore</SelectItem>
               <SelectItem value="Bangalore">Bangalore</SelectItem>
@@ -88,7 +88,7 @@ const Index = () => {
               <SelectValue placeholder="Exclude" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Exclude</SelectItem>
+              <SelectItem value="all">Exclude</SelectItem>
               <SelectItem value="customer">Customer</SelectItem>
               <SelectItem value="professional">Professional</SelectItem>
               <SelectItem value="services">Services</SelectItem>
